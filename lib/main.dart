@@ -40,8 +40,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   Future<Joke> getData() async {
     var responce = await http.get(Uri.parse(
         'https://evilinsult.com/generate_insult.php?lang=en&type=json'));
@@ -124,7 +130,11 @@ class HomePage extends StatelessWidget {
           height: 10,
         ),
         ElevatedButton(
-          onPressed: () => getData(),
+          onPressed: () {
+            setState(() {
+              getData();
+            });
+          },
           child: Text(
             'Generate',
             style: TextStyle(fontSize: 18),
