@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
     }
     if (responce.statusCode == 200) {
       Map<String, dynamic> jsonInfo = json.decode(responce.body);
-      print(responce.body);
+      
       return Joke.fromJson(jsonInfo);
     } else {
       throw Exception('statusCode !=200');
