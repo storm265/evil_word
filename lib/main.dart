@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10))),
           centerTitle: true,
           title: Text(
             '🤬 Evil word',
@@ -63,7 +67,7 @@ class _HomePageState extends State<HomePage> {
     }
     if (responce.statusCode == 200) {
       Map<String, dynamic> jsonInfo = json.decode(responce.body);
-      
+
       return Joke.fromJson(jsonInfo);
     } else {
       throw Exception('statusCode !=200');
