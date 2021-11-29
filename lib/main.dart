@@ -4,7 +4,7 @@ import 'package:evil_word/info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
           centerTitle: true,
-          title: Text(
+          title: const Text(
             '🤬 Evil word',
             style: TextStyle(
               fontWeight: FontWeight.w500,
@@ -52,26 +52,46 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var subscription;
   Future<Joke> getData() async {
     var responce = await http.get(Uri.parse(
         'https://evilinsult.com/generate_insult.php?lang=en&type=json'));
     if (responce.statusCode != 200) {
-      Fluttertoast.showToast(
-          msg: "Error of getting data!",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Error of getting data.')));
     }
     if (responce.statusCode == 200) {
       Map<String, dynamic> jsonInfo = json.decode(responce.body);
-
       return Joke.fromJson(jsonInfo);
     } else {
       throw Exception('statusCode !=200');
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      if (result == ConnectivityResult.mobile) {
+        print('mobile status');
+        getData();
+      } else if (result == ConnectivityResult.wifi) {
+        print('wifi status');
+        getData();
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Required internet connection!')));
+      }
+      print(result);
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    subscription.cancel();
   }
 
   @override
@@ -85,6 +105,9 @@ class _HomePageState extends State<HomePage> {
             child: FutureBuilder<Joke>(
               future: getData(),
               builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return CircularProgressIndicator();
+                }
                 if (snapshot.hasData) {
                   final student = snapshot.data;
 
@@ -93,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.transparent,
                     shadowColor: Colors.redAccent,
                     child: Container(
-                      padding: EdgeInsets.all(7),
+                      padding: const EdgeInsets.all(7),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
@@ -117,10 +140,10 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircularProgressIndicator(),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
-                    Text(
+                    const Text(
                       'Loading \😈',
                       style: TextStyle(color: Colors.red, fontSize: 25),
                     ),
@@ -130,7 +153,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         ElevatedButton(
@@ -139,8 +162,8 @@ class _HomePageState extends State<HomePage> {
               getData();
             });
           },
-          child: Text(
-            'Generate',
+          child: const Text(
+            'Generate joke',
             style: TextStyle(fontSize: 18),
           ),
           style: ButtonStyle(),
