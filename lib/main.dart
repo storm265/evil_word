@@ -52,7 +52,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var subscription;
   Future<Joke> getData() async {
     var responce = await http.get(Uri.parse(
         'https://evilinsult.com/generate_insult.php?lang=en&type=json'));
@@ -68,6 +67,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  var subscription;
   @override
   void initState() {
     super.initState();
@@ -81,8 +81,8 @@ class _HomePageState extends State<HomePage> {
         print('wifi status');
         getData();
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Required internet connection!')));
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: const Text('Required internet connection!')));
       }
       print(result);
     });
