@@ -40,7 +40,13 @@ dev_dependencies:
   flutter_lints:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.9.1"
+
+  flutter_launcher_icons:
+
+flutter_icons:
+  ios: false
+  android: true
+  image_path: "assets/icon/evil_word.png"
 
 
 # For information on the generic Dart part of this file, see the
