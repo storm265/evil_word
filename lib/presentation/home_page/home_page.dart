@@ -1,4 +1,5 @@
-import 'package:evil_word/logic/bloc/joke_bloc.dart';
+
+import 'package:evil_word/logic/home_screen/bloc/joke_bloc/joke_bloc.dart';
 import 'package:evil_word/presentation/home_page/home_screen_decoration.dart';
 import 'package:evil_word/presentation/home_page/widgets/erro_text_widget.dart';
 import 'package:evil_word/presentation/home_page/widgets/loaded_joke_widget.dart';

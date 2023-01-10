@@ -1,6 +1,6 @@
 import 'package:evil_word/data/data_source/joke_data_source_impl.dart';
 import 'package:evil_word/data/repository/joke_repository_impl.dart';
-import 'package:evil_word/logic/bloc/joke_bloc.dart';
+import 'package:evil_word/logic/home_screen/bloc/joke_bloc/joke_bloc.dart';
 import 'package:evil_word/presentation/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
