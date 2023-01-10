@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:evil_word/decorations.dart';
-import 'package:evil_word/model/model.dart';
+import 'package:evil_word/home_page/home_screen_decoration.dart';
+import 'package:evil_word/model/joke_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     }
     if (responce.statusCode == 200) {
       Map<String, dynamic> jsonInfo = json.decode(responce.body);
-      return Joke.fromJson(jsonInfo);
+      return Joke.toMap(jsonInfo);
     } else {
       throw Exception('statusCode !=200');
     }
@@ -59,8 +59,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UiDecoration.backgroundColor,
-      appBar: UiDecoration.appBar(Theme.of(context).colorScheme.secondary),
+      backgroundColor: HomeScreenDecoration.backgroundColor,
+      appBar:
+          HomeScreenDecoration.appBar(Theme.of(context).colorScheme.secondary),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -88,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                             border: Border.all(
                                 width: 3,
                                 color:
-                                    Theme.of(context).colorScheme.secondary)),
+                                    Theme.of(context).colorScheme.secondary),),
                         child: Text(
                           "${student!.insult}.",
                           softWrap: true,
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.w400,
-                              color: Colors.white),
+                              color: Colors.white,),
                         ),
                       ),
                     );
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                         'Loading \😈',
                         style: TextStyle(
                             color: Theme.of(context).textTheme.headline6!.color,
-                            fontSize: 25),
+                            fontSize: 25,),
                       ),
                     ],
                   );

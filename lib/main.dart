@@ -1,7 +1,5 @@
-import 'package:evil_word/decorations.dart';
-import 'package:evil_word/home.dart';
+import 'package:evil_word/home_page/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,17 +8,21 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '🤬 Evil word',
       theme: ThemeData(
-          textTheme: TextTheme(
-              headline6:
-                  TextStyle(color: Theme.of(context).colorScheme.secondary)),
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(secondary: UiDecoration.mainColor)),
+        useMaterial3: true,
+        textTheme: TextTheme(
+          headline6: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          secondary: Colors.redAccent,
+        ),
+      ),
       home: HomePage(),
     );
   }
