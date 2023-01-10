@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:evil_word/logic/home_screen/bloc/joke_bloc/joke_bloc.dart';
 import 'package:evil_word/presentation/home_page/home_screen_decoration.dart';
@@ -34,12 +35,12 @@ class HomePage extends StatelessWidget {
                 }
                 if (state is JokeLoaded) {
                   return LoadedJokeWidget(joke: state.joke);
-                } else if (state is JokeLoadedWithError) {
-                  ErrorTextWidget(message: state.message);
                 }
-                return const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                );
+                if (state is JokeLoadedWithError) {
+                  return ErrorTextWidget(message: state.message);
+                }
+
+                return const SizedBox();
               },
             ),
           ),

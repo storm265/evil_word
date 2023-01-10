@@ -9,14 +9,16 @@ class ErrorTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      message,
-      softWrap: true,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.w400,
-        color: Colors.white,
+    return Center(
+      child: Text(
+        message,
+        softWrap: true,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+          color: Colors.white,
+        ),
       ),
     );
   }

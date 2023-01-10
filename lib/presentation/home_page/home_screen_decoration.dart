@@ -5,12 +5,6 @@ class HomeScreenDecoration {
 
   static AppBar appBar(Color backgroundColor) {
     return AppBar(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-      ),
       centerTitle: true,
       backgroundColor: backgroundColor,
       title: const Text(

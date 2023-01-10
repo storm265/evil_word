@@ -9,6 +9,6 @@ class JokeRepositoryImpl extends JokeRepository {
 
   Future<Joke> getJoke() async {
     final responce = await _jokeDataSource.getJoke();
-    return Joke.fromMap(responce);
+      return Joke.fromMap(responce);
   }
 }
