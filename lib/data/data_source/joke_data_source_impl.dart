@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:evil_word/data/data_source/dto/joke_dto.dart';
 import 'package:evil_word/data/data_source/joke_data_source.dart';
 
 class JokeDataSourceImpl implements JokeDataSource {
@@ -7,12 +8,13 @@ class JokeDataSourceImpl implements JokeDataSource {
   final _dio = Dio();
 
   @override
-  Future<Map<String, dynamic>> getJoke() async {
-    final request = await _dio.get(_jokeUrl);
-    if (request.statusCode == 200) {
-      return request.data;
-    } else {
-      throw 'Something wrong';
+  Future<JokeDTO> getJoke() async {
+    try {
+      final request = await _dio.get(_jokeUrl);
+      final mapData = request.data as Map<String, dynamic>;
+      return JokeDTO.fromJson(mapData);
+    } catch (e) {
+      throw 'Error!';
     }
   }
 }

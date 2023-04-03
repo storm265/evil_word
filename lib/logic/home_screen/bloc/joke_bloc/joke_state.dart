@@ -6,18 +6,18 @@ abstract class JokeState extends Equatable {
   List<Object> get props => [];
 }
 
-class JokeInitial extends JokeState {}
+class JokeInitialState extends JokeState {}
 
-class JokeLoad extends JokeState {}
+class JokeLoadState extends JokeState {}
 
-class JokeLoaded extends JokeState {
-  final Joke joke;
+class JokeLoadedState extends JokeState {
+  final JokeEntity joke;
 
-  JokeLoaded({required this.joke});
+  JokeLoadedState({required this.joke});
 }
 
-class JokeLoadedWithError extends JokeState {
+class JokeLoadedWithErrorState extends JokeState {
   final String message;
 
-  JokeLoadedWithError({required this.message});
+  JokeLoadedWithErrorState({required this.message});
 }

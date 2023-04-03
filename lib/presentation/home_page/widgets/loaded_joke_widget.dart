@@ -1,8 +1,9 @@
-import 'package:evil_word/data/model/joke_model.dart';
+
+import 'package:evil_word/domain/entities/joke_entity.dart';
 import 'package:flutter/material.dart';
 
 class LoadedJokeWidget extends StatelessWidget {
-  final Joke joke;
+  final JokeEntity joke;
   const LoadedJokeWidget({
     Key? key,
     required this.joke,
