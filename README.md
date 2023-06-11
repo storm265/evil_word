@@ -1,4 +1,4 @@
-# uncle_sam
+# Evil jokes app
 
 A new Flutter project.
 
