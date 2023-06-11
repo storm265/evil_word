@@ -7,7 +7,7 @@ class JokeRepositoryImpl extends JokeRepository {
   JokeRepositoryImpl({required JokeDataSource jokeDataSource})
       : _jokeDataSource = jokeDataSource;
 
-  Future<JokeEntity> getJoke() async {
+  Future<JokeEntity> fetchJoke() async {
     final rawJoke = await _jokeDataSource.getJoke();
     return rawJoke.toEntity();
   }

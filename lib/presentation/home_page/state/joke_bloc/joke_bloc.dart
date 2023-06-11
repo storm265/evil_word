@@ -27,5 +27,5 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
     }
   }
 
-  Future<JokeEntity> _getJoke() async => await jokeRepository.getJoke();
+  Future<JokeEntity> _getJoke() async => await jokeRepository.fetchJoke();
 }

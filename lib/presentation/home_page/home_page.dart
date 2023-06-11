@@ -1,10 +1,11 @@
-import 'package:evil_word/logic/home_screen/bloc/joke_bloc/joke_bloc.dart';
-import 'package:evil_word/logic/home_screen/bloc/network_connection/internet_cubit.dart';
-import 'package:evil_word/logic/home_screen/bloc/network_connection/internet_state.dart';
+import 'package:evil_word/presentation/home_page/state/joke_bloc/joke_bloc.dart';
 import 'package:evil_word/presentation/home_page/widgets/error_text_widget.dart';
 import 'package:evil_word/presentation/home_page/widgets/loaded_joke_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'state/network_connection/internet_cubit.dart';
+import 'state/network_connection/internet_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

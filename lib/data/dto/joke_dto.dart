@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 
 import 'package:evil_word/domain/entities/joke_entity.dart';
 
@@ -49,8 +48,6 @@ class JokeDTO {
       comment: map['comment'],
     );
   }
-
-
 
   JokeEntity toEntity() => JokeEntity(
         active: active,

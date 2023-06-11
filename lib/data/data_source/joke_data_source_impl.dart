@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:evil_word/data/data_source/dto/joke_dto.dart';
+import 'package:evil_word/data/dto/joke_dto.dart';
 import 'package:evil_word/data/data_source/joke_data_source.dart';
 
 class JokeDataSourceImpl implements JokeDataSource {
