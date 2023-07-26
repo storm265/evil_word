@@ -29,7 +29,7 @@ class LoadedJokeWidget extends StatelessWidget {
             "${jokeEntity.insult}.",
             softWrap: true,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w400,
               color: Colors.white,

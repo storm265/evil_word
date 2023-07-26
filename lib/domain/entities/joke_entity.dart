@@ -3,7 +3,7 @@
 import 'package:equatable/equatable.dart';
 
 class JokeEntity extends Equatable {
-  JokeEntity({
+  const JokeEntity({
     required this.number,
     required this.language,
     required this.insult,

@@ -8,6 +8,7 @@ class JokeRepositoryImpl extends JokeRepository {
 
   final JokeDataSource _jokeDataSource;
 
+  @override
   Future<JokeEntity> fetchJoke() async {
     final rawJoke = await _jokeDataSource.fetchJoke();
     return rawJoke.toEntity();
