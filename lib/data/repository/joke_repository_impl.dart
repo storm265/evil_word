@@ -3,12 +3,13 @@ import 'package:evil_word/domain/entities/joke_entity.dart';
 import 'package:evil_word/domain/repository/joke_repository.dart';
 
 class JokeRepositoryImpl extends JokeRepository {
-  final JokeDataSource _jokeDataSource;
   JokeRepositoryImpl({required JokeDataSource jokeDataSource})
       : _jokeDataSource = jokeDataSource;
 
+  final JokeDataSource _jokeDataSource;
+
   Future<JokeEntity> fetchJoke() async {
-    final rawJoke = await _jokeDataSource.getJoke();
+    final rawJoke = await _jokeDataSource.fetchJoke();
     return rawJoke.toEntity();
   }
 }

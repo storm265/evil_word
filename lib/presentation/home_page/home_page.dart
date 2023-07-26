@@ -4,8 +4,8 @@ import 'package:evil_word/presentation/home_page/widgets/loaded_joke_widget.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'state/network_connection/internet_cubit.dart';
-import 'state/network_connection/internet_state.dart';
+import 'state/network_connection_cubit/internet_cubit.dart';
+import 'state/network_connection_cubit/internet_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                           );
                         }
                         if (jokeState is JokeLoadedState) {
-                          return LoadedJokeWidget(joke: jokeState.joke);
+                          return LoadedJokeWidget(jokeEntity: jokeState.joke);
                         }
                         if (jokeState is JokeLoadedWithErrorState) {
                           return ErrorTextWidget(message: jokeState.message);

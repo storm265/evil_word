@@ -3,15 +3,6 @@
 import 'package:evil_word/domain/entities/joke_entity.dart';
 
 class JokeDTO {
-  final String number;
-  final String language;
-  final String insult;
-  final String created;
-  final String shown;
-  final String createdby;
-  final String active;
-  final String comment;
-
   JokeDTO({
     required this.number,
     required this.language,
@@ -22,6 +13,22 @@ class JokeDTO {
     required this.active,
     required this.comment,
   });
+
+  final String number;
+
+  final String language;
+
+  final String insult;
+
+  final String created;
+
+  final String shown;
+
+  final String createdby;
+
+  final String active;
+
+  final String comment;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

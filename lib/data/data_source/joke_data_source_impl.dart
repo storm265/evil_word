@@ -8,12 +8,12 @@ class JokeDataSourceImpl implements JokeDataSource {
   final _dio = Dio();
 
   @override
-  Future<JokeDTO> getJoke() async {
+  Future<JokeDTO> fetchJoke() async {
     try {
       final request = await _dio.get(_jokeUrl);
       final mapData = request.data as Map<String, dynamic>;
       return JokeDTO.fromJson(mapData);
-    } catch (e) {
+    } catch (_) {
       throw 'Error!';
     }
   }

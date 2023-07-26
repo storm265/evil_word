@@ -3,15 +3,6 @@
 import 'package:equatable/equatable.dart';
 
 class JokeEntity extends Equatable {
-  final String number;
-  final String language;
-  final String insult;
-  final String created;
-  final String shown;
-  final String createdby;
-  final String active;
-  final String comment;
-
   JokeEntity({
     required this.number,
     required this.language,
@@ -22,6 +13,23 @@ class JokeEntity extends Equatable {
     required this.active,
     required this.comment,
   });
+
+  final String number;
+
+  final String language;
+
+  final String insult;
+
+  final String created;
+
+  final String shown;
+
+  final String createdby;
+
+  final String active;
+
+  final String comment;
+
   @override
   List<Object> get props => [
         number,

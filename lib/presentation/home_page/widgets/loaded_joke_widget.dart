@@ -1,13 +1,13 @@
-
 import 'package:evil_word/domain/entities/joke_entity.dart';
 import 'package:flutter/material.dart';
 
 class LoadedJokeWidget extends StatelessWidget {
-  final JokeEntity joke;
   const LoadedJokeWidget({
     Key? key,
-    required this.joke,
+    required this.jokeEntity,
   }) : super(key: key);
+
+  final JokeEntity jokeEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class LoadedJokeWidget extends StatelessWidget {
             ),
           ),
           child: Text(
-            "${joke.insult}.",
+            "${jokeEntity.insult}.",
             softWrap: true,
             textAlign: TextAlign.center,
             style: TextStyle(
