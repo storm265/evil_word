@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   dio:
-  connectivity_plus: ^2.0.3
+  connectivity_plus: 
   flutter_bloc:
   equatable:
 
@@ -44,7 +44,7 @@ dev_dependencies:
   flutter_launcher_icons:
 
 flutter_icons:
-  ios: false
+  ios: true
   android: true
   image_path: "assets/icon/evil_word.png"
 

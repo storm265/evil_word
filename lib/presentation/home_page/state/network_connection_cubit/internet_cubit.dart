@@ -6,11 +6,11 @@ class InternetCubit extends Cubit<InternetCubitState> {
   final Connectivity connectivity;
 
   InternetCubit({required this.connectivity})
-      : super(InternetDisconnectedState()) {
+      : super(const InternetDisconnectedState()) {
     connectivity.onConnectivityChanged.listen((connectivityResult) {
       connectivityResult == ConnectivityResult.none
-          ? emit(InternetDisconnectedState())
-          : emit(InternetConnectedState());
+          ? emit(const InternetDisconnectedState())
+          : emit(const InternetConnectedState());
     });
   }
 }

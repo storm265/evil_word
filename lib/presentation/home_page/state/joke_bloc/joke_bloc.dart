@@ -8,12 +8,15 @@ part 'joke_event.dart';
 part 'joke_state.dart';
 
 class JokeBloc extends Bloc<JokeEvent, JokeState> {
-  final JokeRepository jokeRepository;
   JokeBloc({required this.jokeRepository}) : super(JokeInitialState()) {
     on<JokeEvent>((event, emit) async {
       await _onLoadJokeEvent(event, emit);
     });
   }
+  final JokeRepository jokeRepository;
+
+  Future<JokeEntity> _getJoke() async => await jokeRepository.fetchJoke();
+
   Future<void> _onLoadJokeEvent(
       JokeEvent event, Emitter<JokeState> emit) async {
     if (event is LoadJokesEvent) {
@@ -26,6 +29,4 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
       }
     }
   }
-
-  Future<JokeEntity> _getJoke() async => await jokeRepository.fetchJoke();
 }

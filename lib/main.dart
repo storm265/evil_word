@@ -5,9 +5,12 @@ import 'package:evil_word/presentation/home_page/state/joke_bloc/joke_bloc.dart'
 import 'package:evil_word/presentation/home_page/state/network_connection_cubit/internet_cubit.dart';
 import 'package:evil_word/presentation/home_page/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 

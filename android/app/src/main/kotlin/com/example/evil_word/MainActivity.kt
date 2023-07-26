@@ -1,4 +1,4 @@
-package com.example.uncle_sam
+package com.example.evil_word
 
 import io.flutter.embedding.android.FlutterActivity
 

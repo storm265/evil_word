@@ -1,6 +1,16 @@
-class InternetCubitState {}
+import 'package:equatable/equatable.dart';
 
+class InternetCubitState extends Equatable {
+  const InternetCubitState();
 
-class InternetConnectedState extends InternetCubitState {}
+  @override
+  List<Object> get props => [];
+}
 
-class InternetDisconnectedState extends InternetCubitState {}
+class InternetConnectedState extends InternetCubitState {
+  const InternetConnectedState();
+}
+
+class InternetDisconnectedState extends InternetCubitState {
+  const InternetDisconnectedState();
+}
